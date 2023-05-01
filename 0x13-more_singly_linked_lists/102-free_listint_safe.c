@@ -31,7 +31,7 @@ void free_lisp2(listp_t **head)
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t nodes = 0;
+	size_t nnodes = 0;
 	listp_t *hptr, *new, *add;
 	listint_t *curr;
 
@@ -64,10 +64,10 @@ size_t free_listint_safe(listint_t **h)
 		curr = *h;
 		*h = (*h)->next;
 		free(curr);
-		nodes++;
+		nnodes++;
 	}
 
 	*h = NULL;
 	free_listp2(&hptr);
-	return (nodes);
+	return (nnodes);
 }
